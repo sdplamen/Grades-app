@@ -5,7 +5,7 @@ suite('Home page', function() {
   test('Page title', async function() {
     let res = await fetch("http://localhost:8888/");
     let body = await res.text();
-    assert.ok(body.includes("<h1>My Grades</h1>"));
+    assert.ok(body.includes("<h1>This is my grades list</h1>"));
   });
   
   test('Grades count', async function() {
