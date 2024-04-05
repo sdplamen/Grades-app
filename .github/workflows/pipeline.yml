@@ -1,4 +1,4 @@
-name: build test UNIT
+name: build test UNIT and UI tests
 
 on:
   push:
@@ -7,12 +7,11 @@ on:
     branches: [ "main" ]
 
 jobs:
-  build:
-
+  run_Unit_tests:
     runs-on: ubuntu-latest
-
     steps:
-    - uses: actions/checkout@v4
+    - name: Checkout the repository
+      uses: actions/checkout@v4
     - name: Use Node.js 20.x
       uses: actions/setup-node@v4
       with:
@@ -24,3 +23,18 @@ jobs:
       run: npm run test:unit
     - name: Display softuni username
       run: echo "sdplamen"
+  run_UI_teste:
+    needs: run_Unit_tests
+    runs-on: ubuntu-latest
+    steps:
+    - name: Checkout the repository
+      uses: actions/checkout@v4
+    - name: Use Node.js 20.x
+      uses: actions/setup-node@v4
+      with:
+          node-version: 20.x
+          cache: 'npm'
+      - name: install npm dependencies
+        run: npm install
+      - name: Run Unit tests
+        run: npm run test:unit
