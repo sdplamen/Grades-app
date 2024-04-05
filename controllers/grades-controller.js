@@ -2,7 +2,7 @@ function setup(app, grades) {
   app.get('/', function(req, res) {
     let model = {
       title: "My grades",
-      msg: "My Grades",
+      msg: "This is my grades list",
       grades: grades
     };
     res.render('home', model);
@@ -45,7 +45,7 @@ function setup(app, grades) {
       value: req.body.value
     };
     grades.push(grade);
-    res.redirect('/grades');
+    res.redirect('/my-grades');
   });
 }
 
