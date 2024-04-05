@@ -43,8 +43,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Deploy in production
-        uses: JorgeLNJunior/render-deploy@v1.4.4
+        uses: johnbeynon/render-deploy-action@v0.0.8
         with:
-          service_id: ${{ secrets.MY_RENDER_SERVICE }}
-          api_key: ${{ secrets.MY_RENDER_API_KEY }}
-          wait_deploy: true
+          service-id: ${{ secrets.MY_RENDER_SERVICE_ID }}
+          api-key: ${{ secrets.MY_RENDER_API_KEY }}
